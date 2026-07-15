@@ -1,0 +1,15 @@
+
+span{
+    padding-left: 50px;
+    font-size: 14.4px;
+    cursor:pointer;
+    color: #666666;
+}
+body{
+    font-family: 'Inter', sans-serif;
+}
+
+img{
+
+    cursor:pointer;
+}
