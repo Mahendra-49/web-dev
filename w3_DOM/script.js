@@ -24,6 +24,14 @@
 
 
 // hr
+function addtodo(){
+    const input= document.getElementById("text").value;
+
+    const divele= document.createElement("div")
+    divele.innerHTML=input;
+    document.body.appendChild(divele)
+
+}
 
 function delchild(index){
 
