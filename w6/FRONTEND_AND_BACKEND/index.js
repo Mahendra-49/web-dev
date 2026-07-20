@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken")
 const app=express();
 app.use(express.json())
 
-const JWT_SECRET="MAHI"
+const JWT_SECRET=""
 
 let users=[];
 
