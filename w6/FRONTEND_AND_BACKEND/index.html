@@ -1,0 +1,33 @@
+<head>
+
+    <title>log auth</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"> </script>
+    <script>
+        async function signup(){
+            const username=document.getElementById('signupusername').value;
+            const password=document.getElementById('signuppassword').value;
+
+           await axios.post("http://localhost:3000/signup",{
+                username:username,password:password
+            })
+alert("you are signed up successfully")
+        }x
+    </script>
+</head>
+
+<body>
+    <div>
+    <input id="signupusername"  type="text" placeholder="username">
+    <input  id="signuppassword" type="password" placeholder="password">
+    <button onclick="signup()">signup</button>
+
+    </div>
+
+
+    <div>
+    <input  id="signinusername" type="text" placeholder="username">
+    <input   id="signinpassword" type="password" placeholder="password">
+    <button onclick="signin()">signin</button>
+
+    </div>
+</body>
