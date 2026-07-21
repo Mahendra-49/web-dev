@@ -2,7 +2,7 @@ const express = require('express')
 const jwt = require('jsonwebtoken')
 
 const app = express()
-const JWT_SECRET="harkirat123"
+const JWT_SECRET=""
 
 const users = []
 app.post('/signup', (req, res) => {
