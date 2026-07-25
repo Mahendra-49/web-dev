@@ -3,8 +3,10 @@ import { useState ,useEffect} from 'react'
 // import './App.css'
 
 function App() {
-  return <div> <h1>hi there</h1>
-  <Counter></Counter>
+  let countervisible = true;
+  return <div> 
+    {countervisible ? <Counter></Counter> : null}
+    {countervvisible && <Counter></Counter>}
  
 </div>
 }
