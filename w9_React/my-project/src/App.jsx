@@ -3,25 +3,38 @@ import { useState ,useEffect} from 'react'
 // import './App.css'
 
 function App() {
-  let countervisible = true;
+  const [countervisible ,setcountervisible] = useState(true);
+   useEffect( function() {
+    setInterval(function() {
+      setcountervisible(c => !c)
+
+    },5000)
   return <div> 
-    {countervisible ? <Counter></Counter> : null}
-    {countervvisible && <Counter></Counter>}
+    {countervisible && <Counter></Counter>}
  
 </div>
 }
+
 
 function Counter(){
    const [count, setCount] = useState(0);
 
    // hooking into the lifecycle events in react
-   console.log("counter")
+  //  console.log("counter")
 
    // mounting- gaurd the seInterval from re-render
    useEffect(function (){
-    console.log("mounted")
-    setInterval(function(){setCount(count=> count + 1)},1000)
+    console.log(" on mount")
+     const clock= setInterval(function(){
+      console.log("from inside setInterval")
+      setCount(count => count + 1)
+    },1000)
 
+    // unmounting: cleanup
+    return function (){
+      console.log("on ummount")
+      clearInterval(clock)
+    }
    },[])
   //  function Increse(){
   //   setCount(count + 1)
