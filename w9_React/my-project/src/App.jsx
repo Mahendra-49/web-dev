@@ -6,23 +6,30 @@ import { useState ,useEffect} from 'react'
 
 function App() {
  
-  const [countervisible , setCountervisible] = useState(true)
+  // const [countervisible , setCountervisible] = useState(true)
+    const [count , setCount] = useState(0)
 
-  useEffect(function(){
-    setInterval(function (){
-      setCountervisible(c =>!c)
-    },5000)
-  },[])
+  // useEffect(function(){
+  //   setInterval(function (){
+  //     setCountervisible(c =>!c)
+  //   },5000)
+  // },[])
+
+  function increse(){
+    setCount(c => c+ 1)
+
+  }
 
   return <div>
-    {countervisible && <Counter ></Counter>}
+    {<Counter count={count} />}
+    <button onClick={increse}>Increase count</button>
   </div>
  
   
 }
 
-function Counter(){
-   const [count , setCount] = useState(0)
+function Counter(props){
+ 
 
    useEffect(function (){
     const clk=setInterval(function (){
@@ -35,8 +42,14 @@ function Counter(){
 
    },[])
 
-   function reset(){
+   //dependency array with value:-when the count change then only the function execute 
+   useEffect(function(){
+    console.log("count has changed")
+   },[props.count])
 
+
+
+   function reset(){
     return setCount(0)
    }
 
@@ -44,7 +57,7 @@ function Counter(){
 
   return <div>
 
-    <h1>{count}</h1>
+    <h1>{props.count}</h1>
     <button onClick={reset}>Reset count</button>
   </div>
 }
