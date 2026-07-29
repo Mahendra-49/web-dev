@@ -7,7 +7,7 @@ function App() {
   return (
      
    <div style={{ backgroundColor: "lightblue",height:"100vh" }}>
-   
+    <div style={{width:180,height:230, borderRadius:10, backgroundColor:"white"}}><ProfileCard/></div>
     <div style={{display:"flex", justifyContent:"center"}}>
       <div >
         <div style={{padding:10}}><PostComponent/></div>
@@ -41,6 +41,24 @@ const style = { width:  350, backgroundColor:"white", borderRadius:10, borderWid
     <div> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione veniam ad libero cumque cum totam voluptas natus, enim ipsa est veritatis inventore ut quasi nobis tenetur nam, nisi repellat molestiae?</div>
     </div>)
   }
+
+
+
+  function ProfileCard(){
+
+    return <div >
+      <div >
+        <div style={{display:"flex", justifyContent:"center", paddingTop:30}}>   
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyh9ZR7j2Oi5JHGSIe2mt2cgeVlwQb4mXg3kXIaPgEJQ&s=10" style={{height:100,width:100,borderRadius:40}}/>
+             
+         </div>
+         <div>
+          <center>followers: 23,456</center></div>
+      </div>
+    
+    </div>
+  }
+
 
   
 
