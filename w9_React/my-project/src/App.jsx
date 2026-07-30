@@ -1,68 +1,32 @@
-import { useState ,useEffect} from 'react'
 
+import{useState} from 'react'
 
-function App() {
- 
-  
+function App(){
+
   return (
-     
-   <div style={{ backgroundColor: "lightblue",height:"100vh" }}>
-    <div style={{width:180,height:230, borderRadius:10, backgroundColor:"white"}}><ProfileCard/></div>
-    <div style={{display:"flex", justifyContent:"center"}}>
-      <div >
-        <div style={{padding:10}}><PostComponent/></div>
-        <div style={{padding:10}}><PostComponent/></div>
-        <div style={{padding:10}}><PostComponent/></div>
-      </div>
+    <div>
+       <div> <Togglefunction/></div>
+       <div> <Togglefunction/></div>
+       <div> <Togglefunction/></div>
+
     </div>
-    
-   </div>
   )
 }
 
- //object 
-const style = { width:  350, backgroundColor:"white", borderRadius:10, borderWidth:1, borderColor:"gray", padding:20}
- 
-  function PostComponent(){
-    return (<div style={style}>
-    <div style={{display:"flex"}}>
-      <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyh9ZR7j2Oi5JHGSIe2mt2cgeVlwQb4mXg3kXIaPgEJQ&s=10"} style={{height:70, width :70, borderRadius:36 }}/>
-    
-    <div style={{marginLeft:10, width:200, marginTop:10}}>
-      <div>
-      <b>username</b>
-    </div>
-    <div>23,445 followers</div>
-    <div>12 min</div>
-    </div>
-    
-    </div>
+function Togglefunction(){
 
-    <div> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione veniam ad libero cumque cum totam voluptas natus, enim ipsa est veritatis inventore ut quasi nobis tenetur nam, nisi repellat molestiae?</div>
-    </div>)
+  const[notificationCount, setnotificationCount]= useState(0)
+
+  console.log("re-render");
+  function mess(){
+    setnotificationCount(notificationCount + 1)
   }
-
-
-
-  function ProfileCard(){
-
-    return <div >
-      <div >
-        <div style={{display:"flex", justifyContent:"center", paddingTop:30}}>   
-               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyh9ZR7j2Oi5JHGSIe2mt2cgeVlwQb4mXg3kXIaPgEJQ&s=10" style={{height:100,width:100,borderRadius:40}}/>
-             
-         </div>
-         <div>
-          <center>followers: 23,456</center></div>
-      </div>
-    
+  return(
+    <div>
+      <button onClick={mess}>Toggle message</button>
+      {notificationCount}
     </div>
-  }
+  )
+}
 
-
-  
-
-
-
-
-export default App
+export default App;
