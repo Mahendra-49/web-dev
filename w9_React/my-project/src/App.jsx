@@ -72,4 +72,51 @@ function App(){
   )
 }
 
+
+
+
+// 9.1 offline - todolist with loading message
+import {useState , useEffect} from 'react';
+
+
+ function App(){
+  const [currentTab , setCurrenttab] = useState(1);
+  const [tabData , settabData]= useState({})
+  const [loading , setLoading]= useState(0)
+
+  useEffect( function(){
+    setLoading(1)
+    fetch('https://jsonplaceholder.typicode.com/todos/'+currentTab)
+      .then(async response => {
+        const json=await response.json()
+        settabData(json)
+    setLoading(0)    
+
+  })
+   
+  },[currentTab])
+
+   return (
+    <div>
+      <button onClick={function(){
+        setCurrenttab(1)}} style={{color: currentTab == 1? "red" : "black"}}>Task #1</button>
+
+      <button onClick={function (){
+        setCurrenttab(2)}} style={{color: currentTab == 2? "red" : "black"}}>Task #2</button>
+      
+      <button onClick={function (){
+        setCurrenttab(3)}}style={{color: currentTab == 3? "red" : "black"}}>Task #3</button>
+      
+      <button onClick={function (){
+        setCurrenttab(4)}} style={{color: currentTab == 4? "red" : "black"}}>Task #4</button>
+
+<br />
+        {loading? "Loading.." :tabData.title}
+    </div>
+  )
+}
+
+ 
+
+
 export default App
