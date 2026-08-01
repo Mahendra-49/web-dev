@@ -42,3 +42,34 @@ function App() {
    </div>
   )
 }
+
+
+
+
+//9.1 offline- linkedin navbar
+import {useState , useEffect} from 'react'
+
+function App(){
+
+  const [currenttab , setCurrenttab]=useState("feed")
+
+ 
+
+  return (
+    <div>
+      <button onClick={()=>
+        setCurrenttab("feed")} style={{color: currenttab == "feed"? "red" : "black"}}>feed</button>
+
+      <button onClick={()=>
+        setCurrenttab("notification")} style={{color: currenttab == "notification"? "red" : "black"}}>notification</button>
+      
+      <button onClick={()=>
+        setCurrenttab("message")} style={{color: currenttab == "message"? "red" : "black"}}>message</button>
+      
+      <button onClick={()=>
+        setCurrenttab("jobs")} style={{color: currenttab == "jobs"? "red" : "black"}}>jobs</button>
+    </div>
+  )
+}
+
+export default App
