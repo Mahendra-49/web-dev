@@ -46,7 +46,7 @@ function App() {
 
 
 
-//9.1 offline- linkedin navbar
+//9.3 offline- linkedin navbar
 import {useState , useEffect} from 'react'
 
 function App(){
@@ -75,7 +75,7 @@ function App(){
 
 
 
-// 9.1 offline - todolist with loading message
+// 9.3 offline - todolist with loading message
 import {useState , useEffect} from 'react';
 
 
