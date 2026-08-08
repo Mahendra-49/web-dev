@@ -120,3 +120,46 @@ function App() {
 }
 
 export default App
+
+
+
+//10.1
+import {BrowserRouter, Routes, Route } from 'react-router-dom';
+
+function App(){
+  return <div>
+
+    Allen | 11th | 12th {/* for all pages it appear*/}
+    
+    <BrowserRouter>   {/* this appear only for those route : conditional */}
+
+      <Routes>
+        <Route path='/' element={<Landing />}/>
+        <Route path='/neet/online-coaching-class-11' element={<Class11Program />}/>
+        <Route path='/neet/online-coaching-class-12' element={<Class12Program/>}/>
+
+      </Routes>
+    </BrowserRouter>
+
+  </div>
+}
+function Landing(){
+  return<div>
+    Welcome to allen
+  </div>
+}
+
+function Class11Program(){
+  return <div>
+    class 11th classes
+  </div>
+}
+
+function Class12Program(){
+  return <div>
+    class 12 classses
+  </div>
+
+}
+
+export default App;
