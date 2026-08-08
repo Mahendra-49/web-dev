@@ -163,3 +163,69 @@ function Class12Program(){
 }
 
 export default App;
+
+
+import {BrowserRouter, Routes, Route ,Link, Outlet } from 'react-router-dom';
+
+function App(){
+  return <div>
+
+    {/* Allen | 11th | 12th for all pages it appear */}
+    
+    <BrowserRouter>   {/* this appear only for those route : conditional */}
+
+    
+      <Routes>
+        <Route path='/' element={<Layout/>}>
+         <Route path='/' element={<Landing />}/>
+         <Route path='/neet/online-coaching-class-11' element={<Class11Program />}/>
+         <Route path='/neet/online-coaching-class-12' element={<Class12Program/>}/>
+         <Route path="*" element={<ErrorPage />}/>
+
+        </Route>
+
+      </Routes>
+    </BrowserRouter>
+
+  </div>
+}
+
+ function Layout(){
+return<div style={{padding:20, textAlign:'center', fontSize:23}}>
+    <Link to="/">Allen</Link> |
+    <Link to="/neet/online-coaching-class-11">11th</Link> |
+    <Link to="/neet/online-coaching-class-12">12th</Link> |
+
+    <Outlet/>
+
+    Footer
+
+</div>
+
+ }
+
+function ErrorPage(){
+  return<div>
+    Sorry! Page Not Found
+  </div>
+}
+function Landing(){
+  return<div>
+    Welcome to allen
+  </div>
+}
+
+function Class11Program(){
+  return <div>
+    class 11th classes
+  </div>
+}
+
+function Class12Program(){
+  return <div>
+    class 12 classses
+  </div>
+
+}
+
+export default App;
