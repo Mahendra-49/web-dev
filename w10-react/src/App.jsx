@@ -332,3 +332,32 @@ function ClickRef(){
 }
 
 export default App;
+
+
+ import {useRef , useState} from 'react';
+ function App(){
+const [count, setCount] = useState(0)
+const timer = useRef(0)
+
+function Counter(){
+  timer.current =setInterval(()=>{
+    setCount(c=> c + 1)
+  }, 1000)
+}
+
+function Stopper(){
+  clearInterval(timer.current)
+ 
+
+}
+
+return <div>
+  {count}
+  <br/>
+  <button onClick={Counter}>start</button>
+  <button onClick={Stopper}>Stop</button>
+</div>
+ }
+
+ export default App;
+
