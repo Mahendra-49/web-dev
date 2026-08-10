@@ -303,3 +303,32 @@ function Class12Program(){
 }
 
 export default App;
+
+
+import {useRef } from 'react';
+
+function App(){
+
+  const inputref = useRef();
+
+  // without useref
+  function Click(){
+    document.getElementById("asdf").focus();
+  }
+
+// using useref
+function ClickRef(){
+  inputref.current.focus()
+}
+  return<div>
+    SignUp
+   <input  ref={inputref} type='email'/>
+   <input type='password'/>
+   <button onClick={ClickRef}>Submit</button>
+  </div>
+
+
+
+}
+
+export default App;
