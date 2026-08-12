@@ -361,3 +361,44 @@ return <div>
 
  export default App;
 
+
+ // week 10.2
+ 
+ import{useState } from "react";
+
+ function App(){
+  return <div>
+    <LightBulb />
+  </div>
+ }
+
+ function LightBulb(){
+  const [Bulbon , setBulbOn]= useState(true)
+  return <>
+  <BulbState Bulbon={Bulbon} />
+  <ToggleBulbState setBulbOn={setBulbOn} />
+  
+  </>
+ }
+
+ function BulbState({Bulbon}){
+  return <div>
+    {Bulbon ? "Bulb On" : "Bulb Off"}
+
+
+  </div>
+ }
+
+ function ToggleBulbState( {setBulbOn}){
+  function toggle(){
+    setBulbOn(currentState => !currentState)
+
+  }
+
+  return <div>
+    <button onClick={toggle}>Toogle the State</button>
+  </div>
+ }
+
+ export default App;
+
