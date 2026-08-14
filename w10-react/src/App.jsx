@@ -402,3 +402,50 @@ return <div>
 
  export default App;
 
+
+//10.2 context api
+import { useContext } from 'react';
+import {useState, createContext } from 'react';
+
+const BulbContext = createContext();
+
+function App(){
+  const [bulbOn , setBulbOn] = useState(true)
+  return<>
+  <BulbContext.Provider value={{
+    bulbOn :bulbOn,
+    setBulbOn:setBulbOn
+  }}>
+    <Light/>
+  </BulbContext.Provider>
+  </>
+
+}
+
+function Light(){
+  return <div>
+    <BulbLight />
+    <ToggleBulb />
+      
+  </div>
+}
+
+function BulbLight(){
+  const {bulbOn } = useContext(BulbContext)
+  return<>
+  {bulbOn ? "Bulb is ON " :"Bulb is OFF"}
+  </>
+}
+
+function ToggleBulb(){
+const {bulbOn , setBulbOn } = useContext(BulbContext)
+  function toggle(){
+    setBulbOn(!bulbOn)
+  }
+
+  return<div>
+    <button onClick ={toggle}>Toggle Button</button>
+  </div>
+}
+export default App;
+
