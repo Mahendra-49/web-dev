@@ -449,3 +449,57 @@ const {bulbOn , setBulbOn } = useContext(BulbContext)
 }
 export default App;
 
+
+//wrapper component
+import {useState, createContext , useContext} from 'react';
+
+const BulbContext = createContext();
+
+function BulbProvider({children}){
+  const [bulbOn , setBulbOn]  = useState(true);
+
+  return<div>
+    <BulbContext.Provider value={{bulbOn:bulbOn , setBulbOn: setBulbOn}} >
+      {children }
+      </BulbContext.Provider>
+  </div>
+
+}
+
+function App(){
+ 
+  return<>
+  <BulbProvider>
+    <Light/>
+  </BulbProvider>
+  </>
+
+}
+
+function Light(){
+  return <div>
+    <BulbLight />
+    <ToggleBulb />
+      
+  </div>
+}
+
+function BulbLight(){
+  const {bulbOn } = useContext(BulbContext)
+  return<>
+  {bulbOn ? "Bulb is ON " :"Bulb is OFF"}
+  </>
+}
+
+function ToggleBulb(){
+const {bulbOn , setBulbOn } = useContext(BulbContext)
+  function toggle(){
+    setBulbOn(!bulbOn)
+  }
+
+  return<div>
+    <button onClick ={toggle}>Toggle Button</button>
+  </div>
+}
+export default App;
+
