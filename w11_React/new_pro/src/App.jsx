@@ -65,3 +65,25 @@ function App(){
 }
 export default App;
 
+
+
+//Generic useFetch
+import {useState } from "react";
+import { useFetch } from "./hooks/useFetch";
+
+function App(){
+    const [postNumber, setPostNumber]=useState(1)
+    const jsn = useFetch("https://jsonplaceholder.typicode.com/posts/"+postNumber)
+
+  
+
+    return(
+        <div>
+    <button onClick ={()=>setPostNumber(1)}>post 1</button>
+    <button onClick= {()=>setPostNumber(2)}>post 2</button>
+    <button onClick= {()=>setPostNumber(3)}>post 3</button>
+    {JSON.stringify(jsn)}
+    </div>
+    )
+}
+export default App;

@@ -19,3 +19,28 @@ export function useFetch(){
   })
 }
 
+//Generic useFetch
+
+import {useState , useEffect } from "react";
+export function useFetch (url){
+  const [finalData , setFinalData]= useState({})
+
+  async function getPost(){
+  const data =await fetch(url);
+  const jsn = await data.json();
+  setFinalData(jsn)
+  }
+
+  useEffect(()=>
+    {
+      getPost()
+    },[url])
+
+
+  return({
+    finalData:finalData
+  })
+
+}
+
+
